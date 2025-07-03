@@ -15,6 +15,18 @@ This repository contains scripts and instructions to reproduce the experiments f
 ├── Dataset.zip         # Dataset used
 └── README.md           # This file
 ```
+## 🧠 Instruction-Tuned Models
+
+The following instruction‑tuned large language models are used in this project and can be downloaded from Hugging Face:
+
+- **Mistral‑7B**  
+  [Hugging Face model page](https://huggingface.co/mistralai/Mistral-7B-v0.1)
+
+- **BioMistral‑7B**  
+  [Hugging Face model page](https://huggingface.co/BioMistral/BioMistral-7B)
+
+- **AlpaCare‑llama‑13B**  
+  [Hugging Face model page](https://huggingface.co/xz97/AlpaCare-llama-13b)
 
 ---
 
