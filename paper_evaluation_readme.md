@@ -10,14 +10,10 @@ This repository contains scripts and instructions to reproduce the experiments f
 ## 📂 Repository Structure
 
 ```
-├── batch_tf_prediction.py       # Script for True/False predictions
-├── comparative_evaluation.py    # Script for A vs. B model comparison
-├── requirements.txt             # Python dependencies
-├── inputs/                      # Place your input files here
-│   ├── batches/                 # CSV or Excel files for prediction
-│   └── comparisons/             # Excel comparison sheets for evaluation
-├── outputs/                     # Generated output CSV files
-└── README.md                    # This file
+├── Model_Pred.py       # Script for True/False predictions
+├── Comparison.py       # Script for A vs. B model comparison
+├── Dataset.zip         # Dataset used
+└── README.md           # This file
 ```
 
 ---
@@ -38,13 +34,7 @@ This repository contains scripts and instructions to reproduce the experiments f
    source venv/bin/activate
    ```
 
-3. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Set your API keys:
+3. Set your API keys:
 
    ```bash
    export MISTRAL_API_KEY="<your_mistral_key>"
@@ -54,22 +44,22 @@ This repository contains scripts and instructions to reproduce the experiments f
 
 ## 📖 Scripts Overview
 
-### 1. batch\_tf\_prediction.py
+### 1. Model\_prediction.py
 
 **Purpose:** Run a pretrained causal LM to label questions as True or False.
 
 **Key steps:**
 
 - Load `epfl-llm/meditron-70b` via HuggingFace Transformers.
-- Read CSV batches of questions from `inputs/batches/`.
+- Read CSV batches of questions from `Datset/batches/`.
 - Prompt the model with a strict True/False instruction.
 - Parse and save predictions to `outputs/pred_<batch_name>.csv`.
 
 **Usage:**
 
 ```bash
-python batch_tf_prediction.py \
-  --input_glob "inputs/batches/batch_*.csv" \
+python Model_Pred.py \
+  --input_glob "Dataset/batches/batch_*.csv" \
   --model "epfl-llm/meditron-70b" \
   --output_dir "outputs/"
 ```
@@ -78,7 +68,7 @@ python batch_tf_prediction.py \
 
 ---
 
-### 2. comparative\_evaluation.py
+### 2. comparison.py
 
 **Purpose:** Use Mistral’s chat API to compare two model responses across multiple medical criteria.
 
@@ -93,7 +83,7 @@ python batch_tf_prediction.py \
 **Usage:**
 
 ```bash
-python comparative_evaluation.py \
+python comparison.py \
   --batches \
       inputs/comparisons/batch_1_comparison.xlsx \
       inputs/comparisons/batch_2_comparison.xlsx \
@@ -135,7 +125,7 @@ Run `python script.py --help` for full options.
 
 ## 📋 Dependencies
 
-All required packages are listed in `requirements.txt`. Major ones include:
+All required packages:
 
 - `transformers` (for Meditron model)
 - `torch`
@@ -147,9 +137,9 @@ All required packages are listed in `requirements.txt`. Major ones include:
 
 ## 🚀 Reproducing the Paper
 
-1. Prepare your input CSVs/Excel files under `inputs/`.
-2. Run `batch_tf_prediction.py` to generate T/F labels.
-3. Run `comparative_evaluation.py` to evaluate model pairs.
+1. Prepare your input CSVs/Excel files under `Dataset/`.
+2. Run `Model_Pred.py` to generate T/F labels.
+3. Run `comparison.py` to evaluate model pairs.
 4. Use your analysis scripts (e.g., Jupyter notebooks) to recreate figures and tables.
 
 Feel free to modify hyperparameters and model choices to explore variants.
