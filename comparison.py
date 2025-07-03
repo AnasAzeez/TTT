@@ -6,9 +6,9 @@ from tqdm.auto import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # 1) Configuration
-MODEL_NAME = "epfl-llm/meditron-70b"
-INPUT_GLOB = "/kaggle/input/main-batches-emnlp/main batches/batch_*.csv"
-OUTPUT_DIR = "/kaggle/working/"
+MODEL_NAME = ""
+INPUT_GLOB = ""
+OUTPUT_DIR = ""
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
