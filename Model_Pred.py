@@ -1,28 +1,20 @@
-pip install mistralai
-
-
 
 import os
 import pandas as pd
 import json
 import time
 from tqdm import tqdm
-from mistralai import Mistral
+
 
 # --- Configuration ---
-API_KEY = os.getenv("MISTRAL_API_KEY", "Ctjul3PQBuJ5ZctBypEp3AMMGSOfrgaX")
-MODEL_NAME = "mistral-small-latest"
-BATCH_FILES = [
-    "/kaggle/input/alphacare-vs-biomistral/alphacare vs biomistral/batch_1_comparison.xlsx",
-    "/kaggle/input/alphacare-vs-biomistral/alphacare vs biomistral/batch_2_comparison.xlsx",
-    "/kaggle/input/alphacare-vs-biomistral/alphacare vs biomistral/batch_3_comparison.xlsx",
-    "/kaggle/input/alphacare-vs-biomistral/alphacare vs biomistral/batch_4_comparison.xlsx",
-]
+API_KEY = os.getenv("Model_API_KEY", "")
+MODEL_NAME = ""
+BATCH_FILES = []
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Initialize Mistral client
-client = Mistral(api_key=API_KEY)
+# Initialize Model client
+client = Model(api_key=API_KEY)
 
 # System prompt (model role)
 SYSTEM_INSTRUCTION = (
