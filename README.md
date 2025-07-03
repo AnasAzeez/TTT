@@ -2,7 +2,7 @@
 
 This repository contains scripts and instructions to reproduce the experiments from our paper "". It includes two main pipelines:
 
-1. **Batch True/False Prediction** using a causal language model (Meditron-70B).
+1. **Batch True/False Prediction** using a causal language model.
 2. **Comparative Model Evaluation** using Mistral’s chat API to judge pairs of responses.
 
 ---
