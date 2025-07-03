@@ -143,9 +143,3 @@ All required packages:
 4. Use your analysis scripts (e.g., Jupyter notebooks) to recreate figures and tables.
 
 Feel free to modify hyperparameters and model choices to explore variants.
-
----
-
-## 📜 License
-
-This work is released under the MIT License. See [LICENSE](LICENSE) for details.
